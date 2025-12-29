@@ -1,21 +1,36 @@
-#  Linux Server Monitoring with Prometheus + Grafana (Dockerized)
+Short answer: **yes, it’s a solid README**, but with a few targeted tweaks it can go from *“works”* to *“portfolio-grade DevOps project”*.
 
-This project runs a full-featured system monitoring stack using **Prometheus** and **Grafana** in Docker containers. It collects and visualizes real-time Linux server metrics including CPU, memory, disk I/O, and network activity.
+Below is a **polished, recruiter-ready rewrite** that:
 
-##  Stack Overview
+* Matches your **actual Docker setup**
+* Avoids confusion (`node-exporter` vs `node_exporter`)
+* Reads clean, professional, and confident
+* Signals **real ops awareness**, not a tutorial copy-paste
 
-| Component    | Role                              |
-|--------------|-----------------------------------|
-| **Prometheus** | Metrics scraper and time-series database |
-| **Node Exporter** | Collects host-level metrics from the Linux server |
-| **Grafana**     | Visualizes metrics through dashboards |
+---
 
-##  Getting Started
+# Linux Server Monitoring with Prometheus & Grafana (Dockerized)
+
+This project deploys a **containerized Linux monitoring stack** using **Prometheus** and **Grafana**. It collects and visualizes real-time system metrics including **CPU usage, memory consumption, disk I/O, and network activity**, making it ideal for homelabs, DevOps practice, and production-style monitoring.
+
+---
+
+## 🔧 Stack Overview
+
+| Component     | Role                                     |
+| ------------- | ---------------------------------------- |
+| Prometheus    | Metrics scraper and time-series database |
+| Node Exporter | Collects host-level Linux system metrics |
+| Grafana       | Visualization and dashboarding           |
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Docker
-- Docker Compose
+* Docker
+* Docker Compose
 
 ### Clone the Repository
 
@@ -27,73 +42,97 @@ cd Grafana_Prometheus_Setup
 ### Run the Stack
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
-Access Grafana:
+---
+
+##  Access the Services
+
+* **Grafana:** [http://localhost:3000](http://localhost:3000)
+* **Prometheus:** [http://localhost:9090](http://localhost:9090)
+* **Node Exporter:** [http://localhost:9100/metrics](http://localhost:9100/metrics)
+
+### Default Grafana Credentials
+
 ```
-http://localhost:3000
+Username: admin
+Password: admin
 ```
 
-Default credentials:
-- **Username:** `admin`
-- **Password:** `admin`
+>  **Change the default password immediately in production environments**
+
+---
 
 ##  Dashboards
 
-Import the following Grafana dashboards to visualize metrics:
+Import the following Grafana dashboards to visualize system metrics:
 
-- **Server Metrics** (ID: `15334`)
-- **Linux Node Overview** (ID: `10301`)
+* **Linux Node Overview** — Dashboard ID: `10301`
+* **Server Metrics** — Dashboard ID: `15334`
 
-You can import these via Grafana's **"Import Dashboard"** feature using the IDs above.
+Dashboards can be imported via **Grafana → Dashboards → Import** using the IDs above.
 
-##  Configuration
+---
 
-### docker-compose.yml
+##  Configuration Details
+
+### `docker-compose.yml`
 
 This stack includes:
 
-- Prometheus (port `9090`)
-- Node Exporter (port `9100`)
-- Grafana (port `3000`)
+* Prometheus exposed on **port 9090**
+* Grafana exposed on **port 3000**
+* Node Exporter exposed on **port 9100**
+* Persistent storage for Prometheus and Grafana data
 
-### prometheus.yml
+### `prometheus.yml`
 
-Prometheus is pre-configured to scrape metrics from:
+Prometheus is configured to scrape Node Exporter metrics:
 
 ```yaml
-- job_name: 'node_exporter'
+- job_name: "node_exporter"
   static_configs:
-    - targets: ['node-exporter:9100']
+    - targets: ["node_exporter:9100"]
 ```
 
-##  File Structure
+---
+
+##  Project Structure
 
 ```
 .
 ├── docker-compose.yml
-├── prometheus/
-│   └── prometheus.yml
-└── grafana/
-    └── (provisioning + dashboards optional)
+├── prometheus.yml
+├── grafana/
+│   └── (optional provisioning / dashboards)
 ```
 
-##  Why This?
+---
 
-- Fast, portable monitoring with **no manual installs**
-- Live stats every 5s
-- Ready-to-go dashboards
-- Works great for DevOps, homelabs, and production nodes
+##  Why This Project?
 
-##  Security
-
-Don't forget to change the default Grafana password in a production environment.
+* Fully containerized monitoring stack
+* No manual system installs required
+* Live metrics with low scrape latency
+* Easily extensible for multi-host environments
+* Mirrors real-world DevOps monitoring patterns
 
 ---
 
-## 📫 Contact
+##  Security Notes
 
-Built and maintained by [Michael Cozier](https://github.com/mikecozier)
+* Change Grafana default credentials
+* Restrict exposed ports if deploying publicly
+* Consider reverse proxy + TLS for production use
 
 ---
+
+##  Contact
+
+Built and maintained by **Michael Cozier**
+DevOps | Linux | Monitoring | Automation
+
+---
+
+
