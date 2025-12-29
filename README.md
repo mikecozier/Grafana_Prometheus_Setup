@@ -1,8 +1,8 @@
-# 🐳 Linux Server Monitoring with Prometheus + Grafana (Dockerized)
+#  Linux Server Monitoring with Prometheus + Grafana (Dockerized)
 
 This project runs a full-featured system monitoring stack using **Prometheus** and **Grafana** in Docker containers. It collects and visualizes real-time Linux server metrics including CPU, memory, disk I/O, and network activity.
 
-## 📦 Stack Overview
+##  Stack Overview
 
 | Component    | Role                              |
 |--------------|-----------------------------------|
@@ -10,7 +10,7 @@ This project runs a full-featured system monitoring stack using **Prometheus** a
 | **Node Exporter** | Collects host-level metrics from the Linux server |
 | **Grafana**     | Visualizes metrics through dashboards |
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -39,7 +39,7 @@ Default credentials:
 - **Username:** `admin`
 - **Password:** `admin`
 
-## 📊 Dashboards
+##  Dashboards
 
 Import the following Grafana dashboards to visualize metrics:
 
@@ -48,7 +48,7 @@ Import the following Grafana dashboards to visualize metrics:
 
 You can import these via Grafana's **"Import Dashboard"** feature using the IDs above.
 
-## 🛠️ Configuration
+##  Configuration
 
 ### docker-compose.yml
 
@@ -68,7 +68,7 @@ Prometheus is pre-configured to scrape metrics from:
     - targets: ['node-exporter:9100']
 ```
 
-## 📂 File Structure
+##  File Structure
 
 ```
 .
@@ -79,14 +79,14 @@ Prometheus is pre-configured to scrape metrics from:
     └── (provisioning + dashboards optional)
 ```
 
-## 🧠 Why This?
+##  Why This?
 
 - Fast, portable monitoring with **no manual installs**
 - Live stats every 5s
 - Ready-to-go dashboards
 - Works great for DevOps, homelabs, and production nodes
 
-## 🔐 Security
+##  Security
 
 Don't forget to change the default Grafana password in a production environment.
 
