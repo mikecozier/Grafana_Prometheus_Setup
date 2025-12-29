@@ -1,21 +1,6 @@
-Short answer: **yes, it’s a solid README**, but with a few targeted tweaks it can go from *“works”* to *“portfolio-grade DevOps project”*.
-
-Below is a **polished, recruiter-ready rewrite** that:
-
-* Matches your **actual Docker setup**
-* Avoids confusion (`node-exporter` vs `node_exporter`)
-* Reads clean, professional, and confident
-* Signals **real ops awareness**, not a tutorial copy-paste
-
 ---
 
-# Linux Server Monitoring with Prometheus & Grafana (Dockerized)
-
-This project deploys a **containerized Linux monitoring stack** using **Prometheus** and **Grafana**. It collects and visualizes real-time system metrics including **CPU usage, memory consumption, disk I/O, and network activity**, making it ideal for homelabs, DevOps practice, and production-style monitoring.
-
----
-
-## 🔧 Stack Overview
+##  Stack Overview
 
 | Component     | Role                                     |
 | ------------- | ---------------------------------------- |
@@ -25,7 +10,7 @@ This project deploys a **containerized Linux monitoring stack** using **Promethe
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -93,7 +78,7 @@ Prometheus is configured to scrape Node Exporter metrics:
 ```yaml
 - job_name: "node_exporter"
   static_configs:
-    - targets: ["node_exporter:9100"]
+    - targets: ["192.168.1.234:9100"]
 ```
 
 ---
